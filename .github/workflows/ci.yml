@@ -11,7 +11,7 @@ on:
   pull_request:
 
 env:
-  docker_repository: docker.synapse.org/syn22277123/person-name-annotator-example
+  docker_repository: docker.synapse.org/syn25870271/cb-person-name-annotator
 
 jobs:
   configure:
