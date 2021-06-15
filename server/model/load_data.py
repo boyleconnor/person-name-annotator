@@ -3,6 +3,7 @@ from typing import Any
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
+from py._io.capture import TextIO
 
 Annotation = dict[str, Any]
 AnnotationSet = list[Annotation]
@@ -18,8 +19,8 @@ def load_annotation(tag: Element) -> Annotation:
     return annotation
 
 
-def load_file(path: str) -> (str, AnnotationSet):
-    tree = ElementTree.parse(path)
+def load_file(file: TextIO) -> (str, AnnotationSet):
+    tree = ElementTree.parse(file)
     text: str = tree.find('TEXT').text
     tags: Element = tree.find('TAGS')
 
