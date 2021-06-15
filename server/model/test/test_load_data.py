@@ -2,7 +2,7 @@ import os
 from model.load_data import load_file, load_files
 
 # Use dummy data in GitHub CI environment
-if os.getenv('CI'):
+if os.getenv('DUMMY_DATA') == 'true':
     TEST_DIRECTORY = 'model/dummy-data'
     FILE_INDICES = (0, 1)
 else:
@@ -13,7 +13,6 @@ TEST_FILEPATH = os.path.join(TEST_DIRECTORY, '220-01.xml')
 
 
 def test_load_file():
-    raise Exception(os.environ)
     with open(TEST_FILEPATH) as test_file:
         text, annotation_set = load_file(test_file)
 
