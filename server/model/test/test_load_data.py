@@ -26,7 +26,6 @@ def test_load_files():
     files = [open(path) for path in paths]
     texts, annotations_sets = load_files(files)
 
-
     for i in FILE_INDICES:
         sample_text = texts[i]
         sample_annotation_set = annotations_sets[i]
