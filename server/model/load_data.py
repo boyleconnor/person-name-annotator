@@ -1,11 +1,11 @@
-from typing import Any
+from typing import Any, Dict, List
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 from typing import TextIO
 
 
-Annotation = dict[str, Any]
-AnnotationSet = list[Annotation]
+Annotation = Dict[str, Any]
+AnnotationSet = List[Annotation]
 
 
 def load_annotation(tag: Element) -> Annotation:
@@ -30,7 +30,7 @@ def load_file(file: TextIO) -> (str, AnnotationSet):
     return text, annotations
 
 
-def load_files(files: list[TextIO]) -> (list[str], list[AnnotationSet]):
+def load_files(files: List[TextIO]) -> (List[str], list[AnnotationSet]):
     '''Load several files of I2B2 PHI data (in XML); return two arrays:
     (texts, annotation_sets)
     '''
