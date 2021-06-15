@@ -1,9 +1,13 @@
 import os
-
 from model.load_data import load_file, load_files
 
-TEST_DIRECTORY = \
-    'model/i2b2-data/2014_training-PHI-Gold-Set1/training-PHI-Gold-Set1'
+if os.getenv('DUMMY_DATA'):
+    TEST_DIRECTORY = 'model/dummy-data'
+    FILE_INDICES = (0, 1)
+else:
+    TEST_DIRECTORY = \
+        'model/i2b2-data/2014_training-PHI-Gold-Set1/training-PHI-Gold-Set1'
+    FILE_INDICES = (8, 2, 5, 24)
 TEST_FILEPATH = os.path.join(TEST_DIRECTORY, '220-01.xml')
 
 
@@ -22,7 +26,8 @@ def test_load_files():
     files = [open(path) for path in paths]
     texts, annotations_sets = load_files(files)
 
-    for i in (8, 2, 5, 24):
+
+    for i in FILE_INDICES:
         sample_text = texts[i]
         sample_annotation_set = annotations_sets[i]
 
