@@ -13,6 +13,7 @@ TEST_FILEPATH = os.path.join(TEST_DIRECTORY, '220-01.xml')
 
 
 def test_load_file():
+    raise Exception(os.environ)
     with open(TEST_FILEPATH) as test_file:
         text, annotation_set = load_file(test_file)
 
