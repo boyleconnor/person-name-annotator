@@ -30,7 +30,7 @@ def load_file(file: TextIO) -> (str, AnnotationSet):
     return text, annotations
 
 
-def load_files(files: List[TextIO]) -> (List[str], list[AnnotationSet]):
+def load_files(files: List[TextIO]) -> (List[str], List[AnnotationSet]):
     '''Load several files of I2B2 PHI data (in XML); return two arrays:
     (texts, annotation_sets)
     '''
