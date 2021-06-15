@@ -1,9 +1,8 @@
-import os
 from typing import Any
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
+from typing import TextIO
 
-from py._io.capture import TextIO
 
 Annotation = dict[str, Any]
 AnnotationSet = list[Annotation]
@@ -31,12 +30,13 @@ def load_file(file: TextIO) -> (str, AnnotationSet):
     return text, annotations
 
 
-def load_directory(path: str) -> (list[str], list[AnnotationSet]):
-    '''Load a directory of I2B2 PHI data (in XML)
+def load_files(files: list[TextIO]) -> (list[str], list[AnnotationSet]):
+    '''Load several files of I2B2 PHI data (in XML); return two arrays:
+    (texts, annotation_sets)
     '''
     texts, annotation_sets = [], []
-    for filename in os.listdir(path):
-        text, annotation_set = load_file(os.path.join(path, filename))
+    for file in files:
+        text, annotation_set = load_file(file)
         texts.append(text)
         annotation_sets.append(annotation_set)
     return texts, annotation_sets
