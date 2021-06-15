@@ -1,7 +1,8 @@
 import os
 from model.load_data import load_file, load_files
 
-if os.getenv('DUMMY_DATA'):
+# Use dummy data in GitHub CI environment
+if os.getenv('CI'):
     TEST_DIRECTORY = 'model/dummy-data'
     FILE_INDICES = (0, 1)
 else:
