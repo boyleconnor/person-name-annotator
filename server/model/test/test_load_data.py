@@ -18,7 +18,7 @@ def test_load_file():
 
 def test_load_files():
     paths = [os.path.join(TEST_DIRECTORY, filename) for filename in
-                 os.listdir(TEST_DIRECTORY)]
+             os.listdir(TEST_DIRECTORY)]
     files = [open(path) for path in paths]
     texts, annotations_sets = load_files(files)
 
