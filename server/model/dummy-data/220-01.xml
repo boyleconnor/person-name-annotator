@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<deIdi2b2>
-    <TEXT><![CDATA[
-The patient, John Smith, presented with symptoms.
-]]></TEXT>
-    <TAGS>
-        <NAME id="P0" start="14" end="24" text="John Smith" TYPE="NAME" comment="" />
-    </TAGS>
-</deIdi2b2>
