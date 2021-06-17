@@ -12,7 +12,7 @@ Span = Tuple[int, int]
 Spans = List[Span]
 
 
-def label_span(span: Span, annotation_set: AnnotationSet) -> Label:
+def label_token(token: str, span: Span, annotation_set: AnnotationSet) -> Label:
     """Return majority annotation type for a given span
     """
     start, end = span
@@ -29,11 +29,16 @@ def label_span(span: Span, annotation_set: AnnotationSet) -> Label:
     # Return 1 if most of the characters in the range are in a person
     # annotation, else 0.
     span_length = end - start
-    return 0 if (span_length / 2) > overlap else 1
+    if overlap > (span_length / 2) and any(c.isalpha() for c in token):
+        return 1
+    else:
+        return 0
 
 
-def label_spans(spans: Spans, annotation_set: AnnotationSet) -> Labels:
+def label_tokens(tokens: Tokens, spans: Spans,
+                 annotation_set: AnnotationSet) -> Labels:
     """Take list of spans and iterable of annotations; use those annotations to
     make list of labels parallel to list of spans
     """
-    return [label_span(span, annotation_set) for span in spans]
+    return [label_token(token, span, annotation_set) for token, span in
+            zip(tokens, spans)]
