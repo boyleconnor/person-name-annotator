@@ -13,7 +13,7 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="connor-person-name-annotator",
-        version="0.1.3",
+        version="0.1.4",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/person-name-annotator",
         description="Connor Boyle's name annotator using classical machine "
