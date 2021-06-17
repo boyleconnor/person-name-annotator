@@ -1,6 +1,11 @@
 from typing import List
+from scipy.sparse import hstack
 from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 from model.label_spans import Tokens
+
+
+DEFAULT_N_RANGE = (1, 3)
 
 
 def extract_features_from_sequence(sequence: Tokens) -> List[dict]:
@@ -24,6 +29,10 @@ def extract_features_from_sequence(sequence: Tokens) -> List[dict]:
     return feature_dicts
 
 
+def flatten(token_sequences: List[Tokens]):
+    return [token for sequence in token_sequences for token in sequence]
+
+
 def extract_features_from_sequences(
         sequences: List[Tokens]) -> List[dict]:
     """Given list of token sequences, turn tokens into feature dicts,
@@ -37,12 +46,18 @@ def extract_features_from_sequences(
 
 class Vectorizer:
     def __init__(self):
-        self.vectorizer = DictVectorizer(sparse=True)
+        self.feature_vectorizer = DictVectorizer()
+        self.ngram_vectorizer = CountVectorizer(analyzer='char',
+                                                ngram_range=DEFAULT_N_RANGE)
 
     def transform(self, sequences: List[Tokens]):
         feature_dicts = extract_features_from_sequences(sequences)
-        return self.vectorizer.transform(feature_dicts)
+        feature_vectors = self.feature_vectorizer.transform(feature_dicts)
+        ngram_vectors = self.ngram_vectorizer.transform(flatten(sequences))
+        return hstack([feature_vectors, ngram_vectors])
 
     def fit_transform(self, sequences: List[Tokens]):
         feature_dicts = extract_features_from_sequences(sequences)
-        return self.vectorizer.fit_transform(feature_dicts)
+        feature_vectors = self.feature_vectorizer.fit_transform(feature_dicts)
+        ngram_vectors = self.ngram_vectorizer.fit_transform(flatten(sequences))
+        return hstack([feature_vectors, ngram_vectors])
