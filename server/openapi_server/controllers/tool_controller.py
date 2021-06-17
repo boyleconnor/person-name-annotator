@@ -12,15 +12,15 @@ def get_tool():  # noqa: E501
     :rtype: Tool
     """
     tool = Tool(
-        name="person-name-annotator-example",
-        version="1.1.2",
+        name="connor-person-name-annotator",
+        version="0.1.2",
         license=License.APACHE_2_0,
         repository="github:nlpsandbox/person-name-annotator-example",
-        description="Example implementation of the NLP Sandbox Person " +
-                    "Name Annotator",
-        author="NLP Sandbox Team",
-        author_email="team@nlpsandbox.io",
-        url="https://github.com/nlpsandbox/person-name-annotator-example",
+        description="Connor Boyle's person-name annotator using classical "
+                    "machine learning trained on the I2B2 2014 dataset",
+        author="Connor Boyle",
+        author_email="connor.bo@gmail.com",
+        url="https://github.com/cascadianblue/person-name-annotator",
         type="nlpsandbox:person-name-annotator",
         api_version="1.1.2"
     )
