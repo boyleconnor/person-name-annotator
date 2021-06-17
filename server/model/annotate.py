@@ -2,7 +2,7 @@ import joblib
 import numpy as np
 from typing import Union, BinaryIO, List
 from sklearn.linear_model import SGDClassifier
-from model.label_spans import label_spans
+from model.label_spans import label_tokens
 from model.load_data import AnnotationSet
 from model.tokenize import Tokenizer
 from model.vectorize import Vectorizer
@@ -21,7 +21,7 @@ class Annotator:
             tokens, spans = self.tokenizer.get_tokens_and_spans(text)
             token_sequences.append(tokens)
             span_sequences.append(spans)
-            label_sequences.append(label_spans(spans, annotation_set))
+            label_sequences.append(label_tokens(tokens, spans, annotation_set))
 
         # Turn token sequences into flat array of feature vectors
         x = self.vectorizer.fit_transform(token_sequences)
