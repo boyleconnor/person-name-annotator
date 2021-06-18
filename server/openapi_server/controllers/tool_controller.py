@@ -13,13 +13,13 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="connor-person-name-annotator",
-        version="0.1.4",
+        version="0.1.5",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/person-name-annotator",
         description="Connor Boyle's name annotator using classical machine "
                     "learning trained on the I2B2 2014 dataset",
         author="Connor Boyle",
-        author_email="connor.bo@gmail.com",
+        author_email="connorbo@gmail.com",
         url="https://github.com/cascadianblue/person-name-annotator",
         type="nlpsandbox:person-name-annotator",
         api_version="1.1.2"
