@@ -74,6 +74,20 @@ performance!
 
 ## Usage
 
+### Training (and evaluating) the Model
+
+Example train command:
+
+```bash
+python train.py annotator.joblib model/i2b2-data/2014_training-PHI-Gold-Set1/training-PHI-Gold-Set1/*
+```
+
+Example classify command:
+
+```bash
+$ python classify.py annotator.joblib model/i2b2-data/training-PHI-Gold-Set2/*
+```
+
 ### Running with Docker
 
 The command below starts this NLP Sandbox person name annotator locally.
