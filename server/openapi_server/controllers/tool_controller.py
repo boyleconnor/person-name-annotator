@@ -16,7 +16,7 @@ def get_tool():  # noqa: E501
         version="0.1.8",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/person-name-annotator",
-        description="Connor Boyle'",
+        description="ML based annotator by Connor Boyle",
         author="Connor Boyle",
         author_email="connorbo@gmail.com",
         url="https://github.com/cascadianblue/person-name-annotator",
