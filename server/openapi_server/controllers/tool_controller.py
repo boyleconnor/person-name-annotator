@@ -2,6 +2,8 @@ from openapi_server.models.tool import Tool  # noqa: E501
 from openapi_server.models.tool_dependencies import ToolDependencies  # noqa: E501
 from openapi_server.models.license import License
 
+from server.openapi_server.models.tool_type import ToolType
+
 
 def get_tool():  # noqa: E501
     """Get tool information
@@ -20,8 +22,8 @@ def get_tool():  # noqa: E501
         author="Connor Boyle",
         author_email="connorbo@gmail.com",
         url="https://github.com/cascadianblue/person-name-annotator",
-        type="nlpsandbox:person-name-annotator",
-        api_version="1.1.2"
+        type=ToolType.PERSON_NAME_ANNOTATOR,
+        api_version="1.2.0"
     )
     return tool, 200
 
