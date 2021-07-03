@@ -15,7 +15,7 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="connor-person-name-annotator",
-        version="0.1.9",
+        version="0.2.0",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/person-name-annotator",
         description="ML based annotator by Connor Boyle",
