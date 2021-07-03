@@ -1,6 +1,7 @@
 from openapi_server.models.tool import Tool  # noqa: E501
 from openapi_server.models.tool_dependencies import ToolDependencies  # noqa: E501
 from openapi_server.models.license import License
+from openapi_server.models.tool_type import ToolType
 
 
 def get_tool():  # noqa: E501
@@ -13,15 +14,15 @@ def get_tool():  # noqa: E501
     """
     tool = Tool(
         name="connor-person-name-annotator",
-        version="0.1.9",
+        version="0.2.0",
         license=License.APACHE_2_0,
         repository="github:cascadianblue/person-name-annotator",
         description="ML based annotator by Connor Boyle",
         author="Connor Boyle",
         author_email="connorbo@gmail.com",
         url="https://github.com/cascadianblue/person-name-annotator",
-        type="nlpsandbox:person-name-annotator",
-        api_version="1.1.2"
+        type=ToolType.PERSON_NAME_ANNOTATOR,
+        api_version="1.2.0"
     )
     return tool, 200
 

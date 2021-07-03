@@ -1,8 +1,8 @@
-version: "3.8"
+version: "3.9"
 
 services:
   person-name-annotator:
-    image: docker.synapse.org/syn22277123/person-name-annotator-example:0.1.9
+    image: docker.synapse.org/syn22277123/person-name-annotator-example:0.2.0
     build:
       context: server
       dockerfile: Dockerfile
