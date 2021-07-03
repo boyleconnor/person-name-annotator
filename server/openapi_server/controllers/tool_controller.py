@@ -1,8 +1,7 @@
 from openapi_server.models.tool import Tool  # noqa: E501
 from openapi_server.models.tool_dependencies import ToolDependencies  # noqa: E501
 from openapi_server.models.license import License
-
-from server.openapi_server.models.tool_type import ToolType
+from openapi_server.models.tool_type import ToolType
 
 
 def get_tool():  # noqa: E501
