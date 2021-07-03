@@ -13,3 +13,4 @@ from openapi_server.models.text_person_name_annotation_request import TextPerson
 from openapi_server.models.text_person_name_annotation_response import TextPersonNameAnnotationResponse
 from openapi_server.models.tool import Tool
 from openapi_server.models.tool_dependencies import ToolDependencies
+from openapi_server.models.tool_type import ToolType
